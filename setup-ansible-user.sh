@@ -14,6 +14,7 @@ fi
 # --- Detect OS family ---
 if [[ -f /etc/os-release ]]; then
   . /etc/os-release
+  ID_LIKE="${ID_LIKE:-}"
   case "$ID_LIKE" in
     *debian*) SUDO_GROUP="sudo" ;;
     *rhel*|*fedora*) SUDO_GROUP="wheel" ;;
