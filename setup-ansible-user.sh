@@ -3,7 +3,7 @@ set -euo pipefail
 
 # --- Configuration ---
 USERNAME="ansible-jenkins"
-SSH_PUB_KEY="ssh-ed25519 AAAA... your-key-here"  # <-- paste your public key here
+SSH_PUB_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEEkKCnoRuPhoediY62pe+VxVE6pwsAbKbqNnWxP37aK ansible-jenkins"  # <-- paste your public key here
 
 # --- Must run as root ---
 if [[ $EUID -ne 0 ]]; then
