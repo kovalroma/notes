@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scripts</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+      background: #0d1117;
+      color: #c9d1d9;
+      padding: 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.2rem;
+      color: #58a6ff;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .script-block {
+      margin-bottom: 2rem;
+      border: 1px solid #21262d;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #161b22;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .script-name {
+      font-size: 0.85rem;
+      color: #8b949e;
+    }
+
+    .copy-btn {
+      background: none;
+      border: 1px solid #30363d;
+      color: #8b949e;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.75rem;
+      transition: all 0.15s;
+    }
+
+    .copy-btn:hover {
+      color: #c9d1d9;
+      border-color: #58a6ff;
+    }
+
+    .copy-btn.copied {
+      color: #3fb950;
+      border-color: #3fb950;
+    }
+
+    pre {
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    code { color: #c9d1d9; }
+  </style>
+</head>
+<body>
+
+  <h1>~/scripts</h1>
+
+  <div class="script-block">
+    <div class="script-header">
+      <span class="script-name">setup-ansible.sh</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><code>curl -fsSL https://notes.koval.ovh/setup-ansible-user.sh | sudo bash | sudo bash</code></pre>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header">
+      <span class="script-name">install-docker.sh</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><code>curl -fsSL https://notes.koval.ovh/install-docker.sh | sudo bash</code></pre>
+  </div>
+
+  <script>
+    function copyCode(btn) {
+      const code = btn.closest('.script-block').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
